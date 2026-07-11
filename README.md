@@ -1,42 +1,38 @@
-\# Wynn Guild Compare
+# Wynn Guild Compare
 
 
 
-\[!\[CI](https://github.com/diplat-dev/wynn-guild-compare/actions/workflows/ci.yml/badge.svg)](https://github.com/diplat-dev/wynn-guild-compare/actions/workflows/ci.yml)
+ responsive Next.js dashboard for comparing any two Wynncraft guilds across progression, roster, activity, territories, and rankings.
 
 
 
-A responsive Next.js dashboard for comparing any two Wynncraft guilds across progression, roster, activity, territories, and rankings.
+## Features
 
 
 
-\## Features
+- Accessible guild-name and tag autocomplete backed by the official guild directory
+
+- Shareable comparisons through `left` and `right` URL parameters
+
+- Guild banners, level progress, roster metrics, and lifetime activity rates
+
+- Pair-normalized radar chart with raw-value tooltips
+
+- Signed green/red differences with non-color directional indicators
+
+- Responsive desktop and mobile layouts
+
+- Optional server-only Wynncraft API token for higher rate limits
+
+- Cached, normalized server routes that never send raw member payloads to the browser
 
 
 
-\- Accessible guild-name and tag autocomplete backed by the official guild directory
-
-\- Shareable comparisons through `left` and `right` URL parameters
-
-\- Guild banners, level progress, roster metrics, and lifetime activity rates
-
-\- Pair-normalized radar chart with raw-value tooltips
-
-\- Signed green/red differences with non-color directional indicators
-
-\- Responsive desktop and mobile layouts
-
-\- Optional server-only Wynncraft API token for higher rate limits
-
-\- Cached, normalized server routes that never send raw member payloads to the browser
+## Run locally
 
 
 
-\## Run locally
-
-
-
-The only host-level prerequisite is \[Pixi](https://pixi.sh/). Pixi installs the pinned Node.js and pnpm toolchain and provides every project command.
+The only host-level prerequisite is [Pixi](https://pixi.sh/). Pixi installs the pinned Node.js and pnpm toolchain and provides every project command.
 
 
 
@@ -50,11 +46,11 @@ pixi run dev
 
 
 
-Open \[http://localhost:3000](http://localhost:3000). The first task invocation installs the locked JavaScript dependencies automatically.
+Open [http://localhost:3000](http://localhost:3000). The first task invocation installs the locked JavaScript dependencies automatically.
 
 
 
-\## Optional Wynncraft API token
+## Optional Wynncraft API token
 
 
 
@@ -98,7 +94,7 @@ For Vercel or another host, configure `WYNNCRAFT\_API\_TOKEN` as a server enviro
 
 
 
-\## Commands
+## Commands
 
 
 
@@ -124,29 +120,17 @@ Both lockfiles are intentional: `pixi.lock` pins the cross-platform runtime/tool
 
 
 
-\## Architecture and data handling
+## Architecture and data handling
 
 
 
-\- `GET /api/guilds` proxies the public guild directory and caches it for one hour.
+- `GET /api/guilds` proxies the public guild directory and caches it for one hour.
 
-\- `GET /api/guilds/\[uuid]` fetches a guild by stable UUID, normalizes the payload, calculates safe roster aggregates, and caches it for two minutes.
+- `GET /api/guilds/\[uuid]` fetches a guild by stable UUID, normalizes the payload, calculates safe roster aggregates, and caches it for two minutes.
 
-\- Raw member payloads and API credentials are never sent to the browser.
+- Raw member payloads and API credentials are never sent to the browser.
 
-\- Wars/week and raids/week are lifetime averages derived from the guild creation date. Wynncraft does not expose historical guild activity snapshots.
+- Wars/week and raids/week are lifetime averages derived from the guild creation date. Wynncraft does not expose historical guild activity snapshots.
 
-\- Radar axes are normalized pairwise for shape comparison, while tooltips and the detailed table retain raw values.
-
-
-
-\## Contributing and security
-
-
-
-Contributions are welcome. Read \[CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Please report security issues according to \[SECURITY.md](SECURITY.md), not through a public issue.
-
-
-
-Data is provided by the \[Wynncraft API v3](https://docs.wynncraft.com/welcome). Wynn Guild Compare is an independent community project and is not affiliated with Wynncraft.
+- Radar axes are normalized pairwise for shape comparison, while tooltips and the detailed table retain raw values.
 
