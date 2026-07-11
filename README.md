@@ -54,7 +54,7 @@ Open [http://localhost:3000](http://localhost:3000). The first task invocation i
 
 
 
-Anonymous requests work by default. To use Wynncraft's higher authenticated rate limits, provide a public-mode token as the server-only `WYNNCRAFT\_API\_TOKEN` environment variable.
+Anonymous requests work by default. To use Wynncraft's higher authenticated rate limits, provide a public-mode token as the server-only `WYNNCRAFT_API_TOKEN` environment variable.
 
 
 
@@ -64,7 +64,7 @@ PowerShell:
 
 ```powershell
 
-$env:WYNNCRAFT\_API\_TOKEN="your-token"
+$env:WYNNCRAFT_API_TOKEN="your-token"
 
 pixi run dev
 
@@ -78,7 +78,7 @@ Bash/Zsh:
 
 ```bash
 
-export WYNNCRAFT\_API\_TOKEN="your-token"
+export WYNNCRAFT_API_TOKEN="your-token"
 
 pixi run dev
 
@@ -86,11 +86,11 @@ pixi run dev
 
 
 
-You can instead copy `.env.example` to `.env.local` and fill in the value. Never rename it with a `NEXT\_PUBLIC\_` prefix. The token is only read by the server API client. If Wynncraft rejects a configured token, the request retries once anonymously and logs a credential-free warning.
+You can instead copy `.env.example` to `.env.local` and fill in the value. Never rename it with a `NEXT_PUBLIC_` prefix. The token is only read by the server API client. If Wynncraft rejects a configured token, the request retries once anonymously and logs a credential-free warning.
 
 
 
-For Vercel or another host, configure `WYNNCRAFT\_API\_TOKEN` as a server environment variable. The app does not require a token to deploy.
+For Vercel or another host, configure `WYNNCRAFT_API_TOKEN` as a server environment variable. The app does not require a token to deploy.
 
 
 
@@ -126,7 +126,7 @@ Both lockfiles are intentional: `pixi.lock` pins the cross-platform runtime/tool
 
 - `GET /api/guilds` proxies the public guild directory and caches it for one hour.
 
-- `GET /api/guilds/\[uuid]` fetches a guild by stable UUID, normalizes the payload, calculates safe roster aggregates, and caches it for two minutes.
+- `GET /api/guilds/[uuid]` fetches a guild by stable UUID, normalizes the payload, calculates safe roster aggregates, and caches it for two minutes.
 
 - Raw member payloads and API credentials are never sent to the browser.
 
