@@ -1,0 +1,19 @@
+[workspace]
+name = "wynn-guild-compare"
+version = "0.1.0"
+description = "Compare Wynncraft guild statistics"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[dependencies]
+nodejs = "24.*"
+pnpm = "10.*"
+
+[tasks]
+install = "pnpm install --frozen-lockfile --config.confirmModulesPurge=false"
+dev = { cmd = "pnpm dev", depends-on = ["install"] }
+build = { cmd = "pnpm build", depends-on = ["install"] }
+start = { cmd = "pnpm start", depends-on = ["install"] }
+lint = { cmd = "pnpm lint", depends-on = ["install"] }
+test = { cmd = "pnpm test", depends-on = ["install"] }
+e2e = { cmd = "pnpm e2e", depends-on = ["install"] }
